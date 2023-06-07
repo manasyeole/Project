@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+</style>
+
+<div class="text-center">
+    <div class="container">
+        <h2>Download CSV Template</h2>
+        <p>Click the button below to download the CSV template file.</p>
+
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Enter First Name">
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter Last Name">
+        </div>
+
+        <div class="form-group">
+            <label for="middleName">Middle Name</label>
+            <input type="text" id="middleName" placeholder="Enter Middle Name">
+        </div>
+
+        <div class="form-group">
+            <label for="state">State Name</label>
+            <input type="text" id="state" placeholder="Enter State Name">
+        </div>
+
+        <div class="form-group">
+            <label for="city">City Name</label>
+            <input type="text" id="city" placeholder="Enter City Name">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button onclick="downloadCSVTemplate()">Download CSV Template</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function downloadCSVTemplate() {
+        // Create a CSV string
+        const csvData = "First Name,Last Name,Middle Name,State Name,City Name,Gender";
+
+        // Create a temporary anchor element
+        const downloadLink = document.createElement("a");
+        downloadLink.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csvData);
+        downloadLink.download = "template.csv";
+
+        // Trigger the download
+        downloadLink.click();
+    }
+</script>

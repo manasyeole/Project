@@ -1,0 +1,106 @@
+﻿@model Project.Models.AddStudentViewModel
+@{
+}
+
+<style>
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+</style>
+
+<div class="text-center">
+    <div class="container">
+        <h2>Upload Student Data</h2>
+        <p>Fill in the details or upload a CSV file.</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>State Name</th>
+                    <th>City Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Maharashtra</td>
+                    <td>Pune</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <form method="post" action="Add">
+            <div class="form-group">
+                <label for="StudentFName">First Name</label>
+                <input type="text" id="StudentFName" class="form-control" asp-for="StudentFName">
+            </div>
+
+            <div class="form-group">
+                <label for="StudentMName">Middle Name</label>
+                <input type="text" id="StudentMName" class="form-control" asp-for="StudentMName">
+            </div>
+
+            <div class="form-group">
+                <label for="StudentLName">Last Name</label>
+                <input type="text" id="StudentLName" class="form-control" asp-for="StudentLName">
+            </div>
+
+            <div class="form-group">
+                <label for="StudentState">State</label>
+                <input type="text" id="StudentState" class="form-control" asp-for="StudentState">
+            </div>
+
+            <div class="form-group">
+                <label for="StudentCity">City</label>
+                <input type="text" id="StudentCity" class="form-control" asp-for="StudentCity">
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Gender</label>
+                <input type="text" id="Gender" class="form-control" asp-for="Gender">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div class="form-group mt-4">
+            <label for="csvFile">Upload CSV File</label>
+            <input type="file" id="csvFile" name="csvFile" accept=".csv">
+        </div>
+    </div>
+</div>
